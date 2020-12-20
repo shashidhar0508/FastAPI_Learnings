@@ -1,1 +1,3 @@
 async
+
+pip install -r requirements.txt         ===> For installing dependencies from requirements.txt file
