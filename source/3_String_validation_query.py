@@ -1,6 +1,6 @@
-import uvicorn
-from fastapi import FastAPI, Query
 from typing import List
+
+from fastapi import FastAPI, Query
 
 app = FastAPI()
 

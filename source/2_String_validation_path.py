@@ -1,6 +1,6 @@
-import uvicorn
-from fastapi import FastAPI, Path, Query
 from typing import List
+
+from fastapi import FastAPI, Path, Query
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -19,7 +19,8 @@ def items_list(
                             regex="^[a-z]+$"),
         item_name: str = Query(..., max_length=20, description="Name of the Item"),
         item: Items,
-        locations: List[str]):
+        locations: List[str],
+        cost: float = Path(..., ge=200, le=500)):
     """
     ... => Tells the required field as required.
 
@@ -33,4 +34,5 @@ def items_list(
     request body: If a parameter is declared and its of Pydantic models type then it is said to request body.
     Example is Items.
     """
-    return {"path_parameter": item_id, "query_parameter  ": item_name, "request body ": item, "list_type ": locations}
+    return {"path_parameter": item_id, "query_parameter  ": item_name,
+            "request body ": item, "list_type ": locations, "cost": cost}

@@ -1,3 +1,12 @@
 async
 
-pip install -r requirements.txt         ===> For installing dependencies from requirements.txt file
+=> For creating requirements.txt file
+    pip freeze > requirements.txt
+
+=> For installing dependencies from requirements.txt file
+    pip install -r requirements.txt
+
+=> For Running FastAPI application
+    uvicorn modulename:FastAPI_object_reference --reload
+    Example :
+        uvicorn BasicOne:app --reload
